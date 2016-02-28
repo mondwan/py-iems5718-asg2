@@ -9,15 +9,15 @@ $(document).ready(function () {
   var $talent = $('#talent');
   var $viewTalent = $('#viewTalent');
   var $save = $('#save');
-  var $modal= $('#modal');
+  var $modal = $('#modal');
 
   var getFormData = function () {
     return {
-        name: $nameField.val(),
-        gender: $('input:radio[name=gender]:checked').val(),
-        age: parseInt($age.val(), 10),
-        exp: parseInt($exp.val(), 10),
-        talent: $talent.val(),
+      name: $nameField.val(),
+      gender: $('input:radio[name=gender]:checked').val(),
+      age: parseInt($age.val(), 10),
+      exp: parseInt($exp.val(), 10),
+      talent: $talent.val(),
     };
   };
 
@@ -31,7 +31,7 @@ $(document).ready(function () {
       show: true,
       backdrop: 'static',
     });
-  }
+  };
 
   var wrapAjax = function (url, data, onSuccess) {
     return $.ajax({
@@ -42,7 +42,7 @@ $(document).ready(function () {
       data: JSON.stringify(data),
       success: onSuccess,
       error: function (e) {
-          console.log('error', e);
+        console.log('error', e);
       },
     });
   };
@@ -101,7 +101,6 @@ $(document).ready(function () {
         $talent.parents('div.form-group').removeClass('has-error');
         $talent.parent().siblings().last().text('');
       }
-
     } catch (e) {
       ret = false;
     }
@@ -110,9 +109,9 @@ $(document).ready(function () {
   };
 
   $gender.on('change', function (e) {
-      $gender.prop('checked', false);
-      var $target = $(e.target);
-      $target.prop('checked', true);
+    $gender.prop('checked', false);
+    var $target = $(e.target);
+    $target.prop('checked', true);
   });
 
   $viewTalent.click(function (e) {
@@ -132,8 +131,8 @@ $(document).ready(function () {
 
       // Redirect user to that talent tree site
       window.location.href = 'http://www.dungeonsanddevelopers.com/#' + v;
-    } catch (e) {
-        console.log('e', e);
+    } catch (err) {
+      console.log('e', err);
     }
   });
 
